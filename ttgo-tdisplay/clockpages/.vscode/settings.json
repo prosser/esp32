@@ -1,0 +1,30 @@
+{
+  "files.associations": {
+    "*.t4": "t4",
+    "array": "cpp",
+    "*.tcc": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "optional": "cpp",
+    "system_error": "cpp",
+    "algorithm": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "streambuf": "cpp",
+    "vector": "cpp",
+    "glcdfont.c": "cpp",
+    "font16.c": "cpp",
+    "string": "cpp",
+    "fstream": "cpp",
+    "sstream": "cpp",
+    "utility": "cpp",
+    "random": "cpp",
+    "ostream": "cpp",
+    "initializer_list": "cpp"
+  },
+  "idf.adapterTargetName": "esp32",
+  "idf.openOcdConfigs": [
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32.cfg"
+  ]
+}
