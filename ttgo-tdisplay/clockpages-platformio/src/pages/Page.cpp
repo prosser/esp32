@@ -1,5 +1,5 @@
-#include "Page.hh"
-#include "App.hh"
+#include "Page.hpp"
+#include "App.hpp"
 
 Page::Page(App *app, TFT_eSPI *screen, const char *name, PageType type)
 {
@@ -22,10 +22,10 @@ void Page::render()
 
 void Page::onBottomButton(ButtonState state)
 {
-  Serial.printf("Page::onBottomButton(%d)\n", state);
+  tracef("Page::onBottomButton(%d)\n", state);
 }
 
 void Page::onTopButton(ButtonState state)
 {
-  Serial.printf("Page::onTopButton(%d)\n", state);
+  tracef("Page::onTopButton(%d)\n", state);
 }

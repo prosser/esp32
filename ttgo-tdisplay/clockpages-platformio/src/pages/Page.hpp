@@ -1,9 +1,8 @@
-#ifndef PAGE_H
-#define PAGE_H
+#pragma once
 
-#include "PageType.hh"
-#include "ButtonHandler.hh"
-#include <TFT_eSPI.h> // Hardware-specific library
+#include "PageType.hpp"
+#include "ButtonHandler.hpp"
+#include "TFT_eSPI.h" // Hardware-specific library
 
 class App;
 
@@ -23,5 +22,3 @@ public:
   virtual void onBottomButton(ButtonState state) override;
   virtual void onTopButton(ButtonState state) override;
 };
-
-#endif

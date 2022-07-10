@@ -1,9 +1,10 @@
-#include "App.hh"
-#include "Page.hh"
-#include "ClockPage.hh"
-#include "MainMenuPage.hh"
-#include "SetTimePage.hh"
-#include "timeutil.h"
+#include "TFT_eSPI.h"
+#include "App.hpp"
+#include "pages/Page.hpp"
+#include "pages/ClockPage.hpp"
+#include "pages/MainMenuPage.hpp"
+#include "pages/SetTimePage.hpp"
+#include "timeutil.hpp"
 
 App::App()
 {
@@ -27,7 +28,7 @@ App::App()
     do
     {
       Page *p = pages.getCurrent();
-      Serial.printf("page [%d] name=\"%s\", type=%d, address=%x\n", iPage++, p->name, p->type, p);
+      tracef("page [%d] name=\"%s\", type=%d, address=%x\n", iPage++, p->name, p->type, p);
     } while (pages.next());
   }
 
@@ -71,7 +72,7 @@ void App::refresh()
 
 void App::nav(PageType pageType)
 {
-  Serial.printf("App::nav(pageType=%d): ", pageType);
+  tracef("App::nav(pageType=%d): ", pageType);
   bool match = false;
   if (pages.moveToStart())
   {
@@ -80,10 +81,10 @@ void App::nav(PageType pageType)
       Page *cur = pages.getCurrent();
       if (cur->type == pageType)
       {
-        Serial.println("found a match!");
+        traceln("found a match!");
         page = cur;
         match = true;
-        Serial.printf("calling onNavigate on page %d\n", page);
+        tracef("calling onNavigate on page %d\n", page);
         page->onNavigate();
         break;
       }
@@ -92,13 +93,13 @@ void App::nav(PageType pageType)
 
   if (!match)
   {
-    Serial.println("no match :(");
+    traceln("no match :(");
   }
 }
 
 void App::applyThemeColors(bool inverted)
 {
-  // Serial.printf("App::applyThemeColors(%d) bgColor=%x, textColor=%x\n", inverted, theme->bgColor->color(), theme->textColor->color());
+  // tracef("App::applyThemeColors(%d) bgColor=%x, textColor=%x\n", inverted, theme->bgColor->color(), theme->textColor->color());
   if (inverted)
   {
     screen->setTextColor(theme->bgColor->color(), theme->textColor->color());
@@ -107,7 +108,7 @@ void App::applyThemeColors(bool inverted)
   {
     screen->setTextColor(theme->textColor->color(), theme->bgColor->color());
   }
-  // Serial.println("App:applyThemeColors done");
+  // traceln("App:applyThemeColors done");
 }
 
 tm App::getTime()
@@ -125,11 +126,11 @@ void App::setTime(tm t)
 #ifdef DEBUG
   Serial.print("setTime(");
   serialPrintTm(t);
-  Serial.printf("): newTimeInMillis=%d, elapsed=%d, timeOffset=%d, millisToTm(timeOffset)=",
+  tracef("): newTimeInMillis=%d, elapsed=%d, timeOffset=%d, millisToTm(timeOffset)=",
                 newTimeInMillis,
                 elapsed,
                 timeOffset);
   serialPrintTm(millisToTm(timeOffset));
-  Serial.println();
+  traceln();
 #endif
 }

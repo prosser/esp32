@@ -1,4 +1,4 @@
-#include "colorhelper.hh"
+#include "colorhelper.hpp"
 
 uint16_t rgb888ToRgb565(uint32_t rgb888)
 {

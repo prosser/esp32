@@ -1,12 +1,12 @@
-#include "App.hh"
-#include "ClockPage.hh"
-#include "simpleSleep.hh"
-#include "timeutil.h"
-#include "colorhelper.hh"
+#include "App.hpp"
+#include "ClockPage.hpp"
+#include "simpleSleep.hpp"
+#include "timeutil.hpp"
+#include "colorhelper.hpp"
 
 void ClockPage::onTopButton(ButtonState state)
 {
-  Serial.printf("ClockPage::onTopButton(%d)\n", state);
+  tracef("ClockPage::onTopButton(%d)\n", state);
   if (state == ButtonState::Pressed)
   {
     app->nav(PageType::MainMenu);

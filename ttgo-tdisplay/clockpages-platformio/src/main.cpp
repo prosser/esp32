@@ -1,11 +1,9 @@
-#include <SPI.h>
 #include <TFT_eSPI.h> // Hardware-specific library
-#include "App.hh"
-#include "Page.hh"
-#include "MainMenuPage.hh"
-#include "ClockPage.hh"
-#include "SetTimePage.hh"
+#include "App.hpp"
+#include "pages/Page.hpp"
+#include "Log.hpp"
 
+Log *log;
 App *app;
 
 unsigned long lastScreenRefresh = 0;                             // in micros
@@ -15,10 +13,8 @@ const unsigned long TFT_BLANK_INTERVAL = TFT_REFRESH_DELAY * 60; // blank the sc
 
 void app_main()
 {
-#ifdef DEBUG
-  Serial.begin(115200);
-  Serial.println("Starting...");
-#endif
+  log = new Log(0);
+  log->writeln("Starting...");
   app = new App();
 
   while (true)

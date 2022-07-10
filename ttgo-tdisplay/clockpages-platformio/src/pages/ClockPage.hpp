@@ -1,8 +1,8 @@
 #ifndef CLOCKPAGE_H
 #define CLOCKPAGE_H
 
-#include "App.hh"
-#include "Page.hh"
+#include "App.hpp"
+#include "Page.hpp"
 
 class ClockPage : public Page
 {

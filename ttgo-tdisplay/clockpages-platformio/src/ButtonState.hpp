@@ -1,10 +1,7 @@
-#ifndef BUTTONSTATE_H
-#define BUTTONSTATE_H
+#pragma once
 
 enum class ButtonState
 {
   Pressed = 0,
   Released = 1,
 };
-
-#endif

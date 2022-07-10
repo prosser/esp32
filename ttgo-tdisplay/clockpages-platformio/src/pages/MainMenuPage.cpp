@@ -1,4 +1,4 @@
-#include "MainMenuPage.hh"
+#include "MainMenuPage.hpp"
 
 void MainMenuPage::onTopButton(ButtonState state)
 {
@@ -28,12 +28,12 @@ void MainMenuPage::render()
 {
   if (dirty)
   {
-    Serial.println("MainMenuPage::render()");
+    traceln("MainMenuPage::render()");
 
     for (int i = 0; i < cItems; i++)
     {
       app->applyThemeColors(i == selectedIndex);
-      Serial.printf("%s%s\n", i == selectedIndex ? "*" : "", labels[i]);
+      tracef("%s%s\n", i == selectedIndex ? "*" : "", labels[i]);
 
       // font heights:
       // 1=8px, 2=16px, 4=26px, 6=48px, 7=48px (7-segment digits only), 8=75px (7-segment digits only)
@@ -42,6 +42,6 @@ void MainMenuPage::render()
     }
 
     dirty = false;
-    Serial.println("MainMenuPage::render() done");
+    traceln("MainMenuPage::render() done");
   }
 }

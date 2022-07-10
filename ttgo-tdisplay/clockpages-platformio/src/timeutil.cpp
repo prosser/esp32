@@ -1,6 +1,7 @@
 #include "time.h"
-#include "timeutil.h"
-#include "HardwareSerial.h"
+#include "timeutil.hpp"
+#include "esp_system.h"
+#include "driver/uart.h"
 
 tm millisToTm(unsigned long milliseconds)
 {
@@ -23,5 +24,5 @@ void serialPrintTm(tm t)
 {
   char str[6];
   strftime(str, 6, "%H:%M", &t);
-  Serial.print(str);
+  uart_write_bytes(UART_NUM_0, str, sizeof(str));
 }

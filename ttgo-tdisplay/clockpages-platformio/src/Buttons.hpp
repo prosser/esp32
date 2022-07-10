@@ -1,8 +1,7 @@
-#ifndef BUTTON_HPP
-#define BUTTON_HPP
+#pragma once
 
-#include "ButtonState.hh"
-#include "ButtonHandler.hh"
+#include "ButtonState.hpp"
+#include "ButtonHandler.hpp"
 
 #define TOP_BUTTON_PIN 35
 #define BOTTOM_BUTTON_PIN 0
@@ -36,7 +35,7 @@ public:
       if (now - lastDebounceTime > debounceDelay)
       {
         lastDebounceTime = now;
-        Serial.printf("button %d %s (%d). Handler: %x\n",
+        tracef("button %d %s (%d). Handler: %x\n",
                       pin,
                       state == ButtonState::Pressed ? "pressed" : "released",
                       state,
@@ -63,5 +62,3 @@ public:
 // set up the buttons with a debounce time == 50ms
 static Button bottomButton = Button(BOTTOM_BUTTON_PIN, 50L);
 static Button topButton = Button(TOP_BUTTON_PIN, 50L);
-
-#endif

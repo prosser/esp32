@@ -2,7 +2,7 @@
 #define THEME_HPP
 
 #include <TFT_eSPI.h>
-//#include "Debugging.h"
+//#include "Debugging.hpp"
 
 #define NumThemeColors 24
 #define NotAThemeColor 0xDEAD

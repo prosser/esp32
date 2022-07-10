@@ -1,6 +1,6 @@
 #include <esp_sleep.h>
 #include <driver/gpio.h>
-#include "simpleSleep.hh"
+#include "simpleSleep.hpp"
 
 /** enters light sleep, waking after a set time or any configured GPIO pins are set to low
  * @param micros Number of microseconds to sleep

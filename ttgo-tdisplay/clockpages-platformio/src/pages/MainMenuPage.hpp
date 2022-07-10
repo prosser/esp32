@@ -1,8 +1,8 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
 
-#include "App.hh"
-#include "Page.hh"
+#include "App.hpp"
+#include "Page.hpp"
 
 class MainMenuPage : public Page
 {

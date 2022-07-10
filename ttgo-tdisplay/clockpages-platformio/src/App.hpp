@@ -1,17 +1,16 @@
-#ifndef STATE_HPP
-#define STATE_HPP
+#pragma once
 
 // uncomment to send serial messages for debugging/troubleshooting
 #define DEBUG
 
 #include <SPI.h>
 #include <TFT_eSPI.h> // Hardware-specific library
-#include "Theme.hh"
-#include "Buttons.hh"
+#include "Theme.hpp"
+#include "Buttons.hpp"
 #include <time.h>
-#include "simpleSleep.hh"
-#include "Page.hh"
-#include "LinkedList.hh"
+#include "simpleSleep.hpp"
+#include "pages/Page.hpp"
+#include "LinkedList.hpp"
 
 // since we rotate to have the buttons on the right, swap width and height
 #define SCREEN_WIDTH TFT_HEIGHT
@@ -47,5 +46,3 @@ private:
 
   unsigned long timeOffset = 0;
 };
-
-#endif

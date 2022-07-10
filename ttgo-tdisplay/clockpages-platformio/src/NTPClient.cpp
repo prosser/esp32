@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 
-#include "NTPClient.hh"
+#include "NTPClient.hpp"
 
 NTPClient::NTPClient(UDP& udp) {
   this->_udp            = &udp;
@@ -86,7 +86,7 @@ bool NTPClient::isValid(byte * ntpPacket)
 
 bool NTPClient::forceUpdate() {
   #ifdef DEBUG_NTPClient
-    Serial.println("Update from NTP Server");
+    traceln("Update from NTP Server");
   #endif
   // flush any existing packets
   while(this->_udp->parsePacket() != 0)

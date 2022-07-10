@@ -1,8 +1,8 @@
 #ifndef COLORTEXT_HPP
 #define COLORTEXT_HPP
 
-#include "Theme.hh"
-// #include "Debugging.h"
+#include "Theme.hpp"
+// #include "Debugging.hpp"
 
 class ColorText
 {
@@ -13,7 +13,7 @@ public:
 
   ColorText(const char *text, ThemeColor textColor, ThemeColor bgColor)
   {
-    Serial.printf("Creating new ColorText: '%s' color=%x bgColor=%x", text, textColor.color(), bgColor.color());
+    tracef("Creating new ColorText: '%s' color=%x bgColor=%x", text, textColor.color(), bgColor.color());
     this->text = text;
     this->textColor = textColor;
     this->bgColor = bgColor;

@@ -1,6 +1,6 @@
-#include "SetTimePage.hh"
-#include "App.hh"
-#include "timeutil.h"
+#include "SetTimePage.hpp"
+#include "App.hpp"
+#include "timeutil.hpp"
 
 void SetTimePage::onNavigate()
 {
@@ -17,7 +17,7 @@ void SetTimePage::onNavigate()
   digits[2] = now.tm_min / 10;
   digits[3] = now.tm_min - digits[2] * 10;
 
-  Serial.printf(", %d-%d-%d-%d\n", digits[0], digits[1], digits[2], digits[3]);
+  tracef(", %d-%d-%d-%d\n", digits[0], digits[1], digits[2], digits[3]);
 }
 
 void SetTimePage::incrementDigit()
@@ -51,7 +51,7 @@ void SetTimePage::selectNextDigit()
 
 void SetTimePage::onTopButton(ButtonState state)
 {
-  Serial.printf("SetTimePage::onTopButton(%d)\n", state);
+  tracef("SetTimePage::onTopButton(%d)\n", state);
   if (state == ButtonState::Pressed)
   {
     if (selectedIndex == 3)
@@ -73,7 +73,7 @@ void SetTimePage::onTopButton(ButtonState state)
 
 void SetTimePage::onBottomButton(ButtonState state)
 {
-  Serial.printf("SetTimePage::onBottomButton(%d)\n", state);
+  tracef("SetTimePage::onBottomButton(%d)\n", state);
   if (state == ButtonState::Pressed)
   {
     incrementDigit();

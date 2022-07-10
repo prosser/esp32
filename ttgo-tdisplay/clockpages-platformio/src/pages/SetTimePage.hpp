@@ -1,7 +1,7 @@
 #ifndef SETTIMESTATE_HPP
 #define SETTIMESTATE_HPP
 
-#include "Page.hh"
+#include "Page.hpp"
 class App;
 
 class SetTimePage : public Page
