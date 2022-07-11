@@ -10,6 +10,7 @@ enum class PageType
   SetTime,
   Stopwatch,
   Timer,
+  Welcome,
 };
 
 #endif

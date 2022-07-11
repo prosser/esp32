@@ -3,6 +3,6 @@
     "board": "esp32:esp32:esp32",
     "programmer": "esp32:esptool",
     "port": "COM7",
-    "sketch": "zachlines.ino",
+    "sketch": "clockpages.ino",
     "output": "./build"
 }
