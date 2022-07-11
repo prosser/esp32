@@ -49,9 +49,9 @@ void SetTimePage::selectNextDigit()
   selectedIndex = (selectedIndex + 1) % 4;
 }
 
-void SetTimePage::onTopButton(ButtonState state)
+void SetTimePage::onBottomButton(ButtonState state)
 {
-  Serial.printf("SetTimePage::onTopButton(%d)\n", state);
+  Serial.printf("SetTimePage::onBottomButton(%d)\n", state);
   if (state == ButtonState::Pressed)
   {
     if (selectedIndex == 3)
@@ -71,9 +71,9 @@ void SetTimePage::onTopButton(ButtonState state)
   }
 }
 
-void SetTimePage::onBottomButton(ButtonState state)
+void SetTimePage::onTopButton(ButtonState state)
 {
-  Serial.printf("SetTimePage::onBottomButton(%d)\n", state);
+  Serial.printf("SetTimePage::onTopButton(%d)\n", state);
   if (state == ButtonState::Pressed)
   {
     incrementDigit();

@@ -1,22 +1,26 @@
 #include "App.hh"
 #include "Page.hh"
+#include "WelcomePage.hh"
 #include "ClockPage.hh"
 #include "MainMenuPage.hh"
 #include "SetTimePage.hh"
 #include "timeutil.h"
+#include "colorhelper.hh"
 
 App::App()
 {
   screen = new TFT_eSPI(); // Invoke custom library
 
   // white text with a black background... at first
-  theme = new Theme(TFT_WHITE, TFT_BLACK);
+  theme = new Theme(rgb888ToRgb565(0x6f58d2), TFT_BLACK);
 
   // set up the pages. Each one is a screen with its own behavior!
+  WelcomePage *welcomePage = new WelcomePage(this, screen);
   ClockPage *clockPage = new ClockPage(this, screen);
   MainMenuPage *mainMenuPage = new MainMenuPage(this, screen);
   SetTimePage *setTimePage = new SetTimePage(this, screen);
 
+  pages.append(welcomePage);
   pages.append(clockPage);
   pages.append(mainMenuPage);
   pages.append(setTimePage);
@@ -40,6 +44,8 @@ App::App()
   screen->fillScreen(theme->bgColor->color());
 
   pages.moveToStart();
+
+  // the first page is the default, so change the order in pages if you want to change that
   page = pages.getCurrent();
 }
 
